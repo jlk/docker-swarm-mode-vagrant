@@ -4,6 +4,7 @@ This project is to similify the setup for [Docker Swarm Mode][1] with Vagrant.
 
 It will automatically create a swarm cluster of Docker, and the first node will be the manager and others will be worker.
 
+For ease of use, network connections to TCP port 8080 (such as http://localhost:8080) are forwarded to the master node. Swarm mode's mesh routing will forward this traffic to any container in the cluster with published service on port 8080.
 
 # Usage
 

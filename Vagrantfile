@@ -35,6 +35,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.provision "shell", inline: "/vagrant/provision-manager.sh #{manager_ip}"
     node.vm.network "private_network", ip: "#{manager_ip}"
     node.vm.hostname = "node-1"
+
+    node.vm.network "forwarded_port", guest: 8080, host: 8080
   end
 
   $num_worker.times do |n|
