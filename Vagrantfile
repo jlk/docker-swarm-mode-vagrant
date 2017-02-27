@@ -36,6 +36,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.network "private_network", ip: "#{manager_ip}"
     node.vm.hostname = "node-1"
 
+#    In the event you need to change the subnet of the IP address of eth0 in the 
+#    master VM, this is how you would do it:
+#    node.vm.provider :virtualbox do |vbox|
+#        vbox.customize ["modifyvm", :id, "--natnet1", "10.3/16"]
+#    end
+
     node.vm.network "forwarded_port", guest: 8080, host: 8080
   end
 
@@ -48,6 +54,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       node.vm.provision "shell", inline: "/vagrant/provision-worker.sh #{manager_ip} #{node_ip}"
       node.vm.network "private_network", ip: "#{node_ip}"
       node.vm.hostname = "node-#{node_index}"
+
+#    In the event you need to change the subnet of the IP address of eth0 in the 
+#    member VMs, this is how you would do it:
+#    node.vm.provider :virtualbox do |vbox|
+#        vbox.customize ["modifyvm", :id, "--natnet1", "10.3/16"]
+#    end
+
     end
   end
 
