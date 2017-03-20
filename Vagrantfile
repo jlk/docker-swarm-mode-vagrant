@@ -44,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     node.vm.network "forwarded_port", guest: 8080, host: 8080
     node.vm.network "forwarded_port", guest: 8443, host: 8443
-    node.vm.network "forwarded_port", guest: 4466, host: 4466
+    node.vm.network "forwarded_port", guest: 8090, host: 8090
   end
 
   $num_worker.times do |n|
