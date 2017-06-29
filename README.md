@@ -1,6 +1,6 @@
 # docker-swarm-mode-vagrant
 
-This project is to similify the setup for [Docker Swarm Mode][1] with Vagrant.
+This project is to simplify the setup for [Docker Swarm Mode][1] with Vagrant.
 
 It will automatically create a swarm cluster of Docker, and the first node will be the manager and others will be worker.
 
